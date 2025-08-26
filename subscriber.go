@@ -62,6 +62,7 @@ func (s *subscriber) start(wg *sync.WaitGroup) {
 			pubsub *redis.PubSub
 			err    error
 		)
+		LOOP:
 		// Try until successfully connect to Redis.
 		for {
 			pubsub, err = s.broker.CancelationPubSub()
@@ -90,6 +91,8 @@ func (s *subscriber) start(wg *sync.WaitGroup) {
 					if ok {
 						cancel()
 					}
+				} else {
+					goto LOOP
 				}
 			}
 		}
