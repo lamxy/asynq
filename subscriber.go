@@ -85,9 +85,11 @@ func (s *subscriber) start(wg *sync.WaitGroup) {
 				s.logger.Debug("Subscriber done")
 				return
 			case msg := <-cancelCh:
-				cancel, ok := s.cancelations.Get(msg.Payload)
-				if ok {
-					cancel()
+				if s != nil && s.cancelations != nil && msg != nil {
+					cancel, ok := s.cancelations.Get(msg.Payload)
+					if ok {
+						cancel()
+					}
 				}
 			}
 		}
