@@ -7,6 +7,14 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+## [0.25.2] - 2024-12-26
+
+### Fixed
+
+* Fix import paths to use consistent module path `github.com/lamxy/asynq` instead of `github.com/hibiken/asynq`
+* Update protobuf generated code to use correct module path
+* Fix Makefile protobuf generation target
+
 ## [0.25.1] - 2024-12-11
 
 ### Upgrades
