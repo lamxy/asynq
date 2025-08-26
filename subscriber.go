@@ -52,6 +52,11 @@ func (s *subscriber) shutdown() {
 func (s *subscriber) start(wg *sync.WaitGroup) {
 	wg.Add(1)
 	go func() {
+		defer func() {
+			if r := recover(); r != nil {
+				s.logger.Errorf("[Asynq] subscriber start panic: %v", r)
+			}
+		}()
 		defer wg.Done()
 		var (
 			pubsub *redis.PubSub
