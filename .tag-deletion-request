@@ -1,8 +1,0 @@
-DELETE_REMOTE_TAG=v0.1.4
-REASON=Remove incorrectly created tag v0.1.4
-LOCAL_TAG_DELETED=true
-REMOTE_TAG_DELETION_REQUIRED=true
-
-# This file indicates a request to delete the remote git tag v0.1.4
-# The local tag has been successfully deleted
-# Manual step required: git push origin --delete tag v0.1.4
